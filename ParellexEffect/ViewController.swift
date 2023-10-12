@@ -2,7 +2,7 @@
 //  ViewController.swift
 //  ParellexEffect
 //
-//  Created by jignesh solanki on 09/10/23.
+//  Created by Jignesh Solanki on 09/10/23.
 //
 
 import UIKit
@@ -44,9 +44,6 @@ class ViewController: UIViewController {
         super.viewDidDisappear(animated)
       
     }
- 
-
- 
 
     
 }
@@ -75,9 +72,6 @@ extension ViewController: UITableViewDataSource{
 extension ViewController {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-     
-           
           
     }
 }
@@ -114,19 +108,17 @@ extension ViewController: UITableViewDelegate {
          
             if let cell = MainCell as? ParallaxCell
             {
-//                let indexPath :NSIndexPath? = self.tblParallex.indexPath(for: cell) as NSIndexPath?
                 ParallaxEffects(cell)
             }
 
         }
     }
-   
-   
     
     private func ParallaxEffects(_ cell: ParallaxCell) {
         let indexpath :NSIndexPath? = self.tblParallex.indexPath(for: cell) as NSIndexPath?
         let index = indexpath?.row
         let point = view.convert(cell.contentView.frame.origin, from: cell.contentView)
         cell.ImgTopConstraint.constant =  -(point.y / 4.0)
+        cell.lblNumberTopConstraint.constant =  -(point.y / 4.0) + 144
     }
 }
